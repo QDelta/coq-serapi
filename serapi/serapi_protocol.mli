@@ -398,6 +398,12 @@ type add_opts = {
   (** [verb] internal Coq parameter, be verbose on parsing *)
 }
 
+module ControlUtil : sig
+  type doc
+  val backup : unit -> doc
+  val restore : doc -> unit
+end
+
 (******************************************************************************)
 (* Init / new document                                                        *)
 (******************************************************************************)

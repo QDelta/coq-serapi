@@ -711,6 +711,9 @@ module ControlUtil = struct
   type doc    = Stateid.t list
   let cur_doc : doc ref = ref [Stateid.of_int 1]
 
+  let backup () = !cur_doc
+  let restore doc = cur_doc := doc
+
   let pp_doc fmt l =
     let open Serapi_pp in
     Format.fprintf fmt "@[%a@]" (pp_list ~sep:" " pp_stateid) l
